@@ -40,7 +40,11 @@ export default function GalleryScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={[styles.title, koulenFont]}>GALLERY</Text>
+      <View style={styles.headerView}>
+        <Text style={[styles.header, koulenFont]}>GALLERY</Text>
+        <View style={styles.retangulo}>
+        </View>
+      </View>
       {images.length === 0 ? (
         <Text style={styles.emptyText}>No images yet</Text>
       ) : (
@@ -53,14 +57,32 @@ export default function GalleryScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#111',
+    backgroundColor: 'black',
     alignItems: 'center',
-    paddingTop: 60,
   },
-  title: {
-    fontSize: 36,
-    color: '#C3E722',
-    marginBottom: 24,
+  headerView: {
+    flex: 1,
+    flexDirection: 'row-reverse',
+    justifyContent: 'space-between',
+    alignItems: 'stretch',
+    marginTop: 40,
+    marginBottom: 20,
+    width: '100%',
+  },
+  header: {
+    fontSize: 40,
+    color: 'white',
+    fontWeight: 'bold',
+    flex: 1,
+    textAlign: 'right',
+    textAlignVertical: 'top',
+    marginRight: 30,
+  },
+  retangulo: {
+    flex: 0.4, 
+    height: 7, 
+    marginTop: 20, // Largura do retângulo (em px)  // Altura do retângulo (em px)
+    backgroundColor: '#C3E722', // Cor de fundo
   },
   emptyText: {
     color: '#666',

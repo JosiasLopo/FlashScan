@@ -19,7 +19,7 @@ export default function App() {
         screenOptions={{
           headerShown: false,
           tabBarStyle: {
-            backgroundColor: '#111',
+            backgroundColor: '#000000',
             borderTopColor: '#222',
             height: 60,
             paddingBottom: 10,
@@ -45,6 +45,7 @@ export default function App() {
           component={GalleryScreen}
           options={{
             tabBarLabel: 'GALLERY',
+            tabBarStyle: { display: 'none' },
           }}
         />
         <Tab.Screen 
@@ -52,6 +53,7 @@ export default function App() {
           component={EditScreen}
           options={{
             tabBarLabel: 'EDIT',
+            tabBarStyle: { display: 'none' },
           }}
         />
       </Tab.Navigator>

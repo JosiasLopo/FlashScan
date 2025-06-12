@@ -7,6 +7,7 @@ import { koulenFont } from '../styles/fonts';
 import { saveImage, getImages } from '../utils/storage';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
+
 type RootStackParamList = {
   Home: undefined;
   Gallery: undefined;
@@ -149,7 +150,11 @@ export default function HomeScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={[styles.header, koulenFont]}>FLASHSCAN</Text>
+      <View style={styles.headerView}>
+        <Text style={[styles.header, koulenFont]}>FLASHSCAN</Text>
+        <View style={styles.retangulo}>
+        </View>
+      </View>
       <View style={styles.cameraContainer}>
         {isCameraMounted && (
           <CameraView
@@ -192,10 +197,11 @@ export default function HomeScreen() {
         >
           <Ionicons
             name={isTorchOn ? 'flash-off' : 'flash'}
-            size={32}
+            size={53}
             color="#fff"
             style={{ textAlign: 'center', textAlignVertical: 'center' }}
           />
+
         </TouchableOpacity>
       </View>
     </View>
@@ -205,19 +211,37 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#111',
+    backgroundColor: 'black',
     alignItems: 'center',
     justifyContent: 'flex-start',
   },
-  header: {
-    fontSize: 32,
-    color: '#C3E722',
+  headerView: {
+    flex: 0.1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'stretch',
     marginTop: 40,
-    marginBottom: 10,
+    width: '100%',
+  },
+  header: {
+    marginTop: 10,
+    fontSize: 40,
+    color: 'white',
+    fontWeight: 'bold',
+    flex: 1.9,
+    textAlign: 'left',
+    textAlignVertical: 'top',
+    marginLeft: 30,
+  },
+  retangulo: {
+    flex: 1, 
+    height: 7, 
+    marginTop: 30, // Largura do retângulo (em px)  // Altura do retângulo (em px)
+    backgroundColor: '#C3E722', // Cor de fundo
   },
   cameraContainer: {
     width: '100%',
-    aspectRatio: 3 / 4,
+    aspectRatio: 3 / 4.5,
     overflow: 'hidden',
     backgroundColor: '#222',
     marginBottom: 20,
@@ -233,11 +257,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   buttonRow: {
+    flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     width: '80%',
-    marginTop: 20,
+    paddingBottom: 40,
   },
   iconButton: {
     width: 80,
@@ -253,32 +278,30 @@ const styles = StyleSheet.create({
     height: 80,
     borderRadius: 40,
     borderWidth: 4,
+    marginLeft: 15,
     borderColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'transparent',
   },
   flashButton: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
+    width: 100,
+    height: 100,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'transparent',
-    padding: 0,
   },
   lastImageIcon: {
-    width: 56,
-    height: 56,
-    borderRadius: 12,
+    width: 45,
+    height: 65,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',
   },
   icon: {
-    width: 56,
-    height: 56,
+    width: 80,
+    height: 80,
     borderRadius: 12,
     alignItems: 'center',
     justifyContent: 'center',
@@ -290,7 +313,7 @@ const styles = StyleSheet.create({
     width: 56,
     height: 56,
     borderRadius: 28,
-    backgroundColor: '#fff',
+    backgroundColor: '#7B7B7B',
   },
   title: {
     fontSize: 24,
