@@ -1,4 +1,6 @@
 # FlashScan App
+## Design
+https://www.figma.com/design/2MI3jslecR8xmDcO8CEHjs/FlashScan?m=auto&t=yX82U33q66FZiWB8-1
 
 ## 📋 To-do List (Development)
 
